@@ -15,12 +15,12 @@ export default function Footer() {
             <h4 className="mb-2 font-semibold text-white">고객센터</h4>
             <p className="text-sm">평일 10:00 - 18:00</p>
             <p className="text-sm">점심 12:00 - 13:00</p>
-            <p className="mt-1 text-sm">contact@sweetmoment.kr</p>
+            <p className="mt-1 text-sm">sinhojung99@gmail.com</p>
           </div>
           <div>
             <h4 className="mb-2 font-semibold text-white">사업자 정보</h4>
             <p className="text-sm">상호: 달콤한 순간</p>
-            <p className="text-sm">대표: 홍길동</p>
+            <p className="text-sm">대표: TEST</p>
             <p className="text-sm">사업자등록번호: 000-00-00000</p>
           </div>
         </div>
