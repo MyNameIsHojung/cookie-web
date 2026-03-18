@@ -1,12 +1,20 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCartStore } from '@/store/cartStore';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const totalItems = useCartStore((s) => s.totalItems);
   const count = totalItems();
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/admin/login');
+  };
 
   const isAdmin = location.pathname.startsWith('/admin');
 
@@ -48,6 +56,14 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          {isAdmin && user && (
+            <button
+              onClick={handleSignOut}
+              className="rounded-lg bg-brand-plum/10 px-3 py-1.5 text-sm font-medium text-brand-plum hover:bg-brand-plum/20"
+            >
+              로그아웃
+            </button>
+          )}
         </nav>
 
         {/* Mobile toggle */}
@@ -79,6 +95,14 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          {isAdmin && user && (
+            <button
+              onClick={() => { setMobileOpen(false); handleSignOut(); }}
+              className="mt-2 block w-full rounded-lg bg-brand-plum/10 py-2 text-sm font-medium text-brand-plum"
+            >
+              로그아웃
+            </button>
+          )}
         </nav>
       )}
     </header>
