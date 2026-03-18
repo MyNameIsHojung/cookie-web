@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply min-h-screen bg-white text-brand-plum;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-brand-teal px-6 py-3 font-semibold text-white transition-all hover:opacity-90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border-2 border-brand-teal px-6 py-3 font-semibold text-brand-teal transition-all hover:bg-brand-teal hover:text-white active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-lg bg-red-500 px-6 py-3 font-semibold text-white transition-all hover:bg-red-600 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-gray-300 px-4 py-3 text-brand-plum placeholder-gray-400 transition-colors focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20;
+  }
+
+  .card {
+    @apply overflow-hidden rounded-2xl bg-white shadow-md transition-shadow hover:shadow-lg;
+  }
+}
